@@ -18,10 +18,18 @@
       console.log('message key', msg.key);
       if(msg.key = "play"){
          var audio_file = msg.data.params.file;
-         console.log("setting attribute to "+audio_file);
-         var a  = document.querySelector("#audio");
-         a.setAttribute("src",audio_file);         
-         a.setAttribute("autoplay","autoplay");         
+         if(!audio_file){
+           audio_file = msg.data.params.url;
+         }
+         if(audio_file){
+           console.log("setting attribute to "+audio_file);
+           var a  = document.querySelector("#audio");
+           a.setAttribute("src",audio_file);         
+           a.setAttribute("autoplay","autoplay");         
+         }else{
+           console.log("no audio file");
+           console.log(msg.data.params);
+         }
       }
     });
     function send(key, data) {

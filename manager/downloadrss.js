@@ -111,7 +111,7 @@ function getRSS(){
       var item = thelist[i];
       if(item.url.indexOf(".mp3") == -1){
          console.log("no mp3, looking for one");
-         var req = request(item.url,{"timeout": 5000}, function(err, res, body){
+         var req = request(item.url,{"timeout": 20000}, function(err, res, body){
 
             // hack parse the html to find the frst mp3
 
